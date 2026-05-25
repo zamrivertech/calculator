@@ -39,6 +39,8 @@ function operate(num1, num2, operator,) {
 
 }
 
+const row = document.querySelectorAll('.row');
+
 /*
 
 console.log(operate(1,1, "+"));
