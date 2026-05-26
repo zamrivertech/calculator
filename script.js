@@ -39,7 +39,16 @@ function operate(num1, num2, operator,) {
 
 }
 
-const row = document.querySelectorAll('.row');
+let screen = document.querySelector(".screen");
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        screen.textContent = button.id;
+    })
+    
+})
 
 /*
 
