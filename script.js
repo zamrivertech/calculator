@@ -47,6 +47,7 @@ function setDigit(buttons) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             screen.textContent = button.id;
+            num1 = button.id;
         })
         
     })
@@ -54,6 +55,7 @@ function setDigit(buttons) {
 }
 
 setDigit(buttons);
+
 
 /*
 
