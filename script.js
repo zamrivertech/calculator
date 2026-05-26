@@ -47,7 +47,8 @@ function setDigit(buttons) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             screen.textContent = button.id;
-            num1 = button.id;
+            num1 = new Number(button.id);
+            console.log(typeof num1[0]);
         })
         
     })
