@@ -1,6 +1,9 @@
 let num1 = 0;
 let operator = "";
 let num2 = 0;
+let screen = document.querySelector(".screen");
+const buttons = document.querySelectorAll('button');
+
 
 function add(a, b) {
     return a + b;
@@ -39,16 +42,18 @@ function operate(num1, num2, operator,) {
 
 }
 
-let screen = document.querySelector(".screen");
+function setDigit(buttons) {
 
-const buttons = document.querySelectorAll('button');
-
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        screen.textContent = button.id;
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            screen.textContent = button.id;
+        })
+        
     })
-    
-})
+
+}
+
+setDigit(buttons);
 
 /*
 
