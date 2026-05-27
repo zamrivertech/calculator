@@ -1,4 +1,5 @@
 let num1 = 0;
+let operations = ['+','-','*','/'];
 let operator = "";
 let num2 = 0;
 let screen = document.querySelector(".screen");
@@ -21,7 +22,7 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate(num1, num2, operator,) {
+function operate(num1, num2, operator) {
 
     //use case
 
@@ -53,7 +54,14 @@ function setDigit(buttons) {
             num1 = button.id * 1 === Number(button.id) ? button.id : 0;
             screen.textContent = num1;
 
-            //check operator
+            //check and set operator
+
+            for (let i = 0; i < operations.length; i++) {
+                if (button.id === operations[i]) {
+                    operator = button.id;
+                    console.log(operator);
+                }
+            }
 
             
             
