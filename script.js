@@ -1,9 +1,11 @@
-let num1 = 0;
+let num1 = null;
 let operations = ['+','-','*','/'];
 let operator = "";
 let num2 = 0;
 let screen = document.querySelector(".screen");
 const buttons = document.querySelectorAll('button');
+
+console.log(buttons);
 
 
 function add(a, b) {
@@ -50,29 +52,40 @@ function setDigit(buttons) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
 
-
             num1 = button.id * 1 === Number(button.id) ? button.id : 0;
-            screen.textContent = num1;
+            console.log(num1);
+            screen.textContent = num1;          
+            
+        })
+        
+    })
+}
+
+function setOperator(buttons) {
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
 
             //check and set operator
-
             for (let i = 0; i < operations.length; i++) {
                 if (button.id === operations[i]) {
                     operator = button.id;
                     console.log(operator);
                 }
-            }
-
-            
+            }          
             
         })
         
     })
-
 }
 
-setDigit(buttons);
+//you have to separate the type of buttons
+//if a digit button is clicked then set number
+//do not query select all buttons
 
+
+setDigit(buttons);
+setOperator(buttons);
 
 /*
 
