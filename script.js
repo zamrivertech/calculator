@@ -37,7 +37,9 @@ function operate(num1, num2, operator,) {
         break;   
         case "/":
             return divide(num1,num2);
-        break;                           
+        break;  
+        default:
+            return alert('No Operator');                         
     }
 
 }
@@ -46,9 +48,15 @@ function setDigit(buttons) {
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            screen.textContent = button.id;
-            num1 = new Number(button.id);
-            console.log(typeof num1[0]);
+
+
+            num1 = button.id * 1 === Number(button.id) ? button.id : 0;
+            screen.textContent = num1;
+
+            //check operator
+
+            
+            
         })
         
     })
