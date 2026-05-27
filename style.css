@@ -60,3 +60,10 @@ h1 {
     width: 100%;
 }
 
+#digits {
+    flex-wrap: wrap;
+}
+#digits * {
+    flex-basis: 55px;
+}
+

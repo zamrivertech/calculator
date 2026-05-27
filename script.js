@@ -3,9 +3,10 @@ let operations = ['+','-','*','/'];
 let operator = "";
 let num2 = 0;
 let screen = document.querySelector(".screen");
-const buttons = document.querySelectorAll('button');
+const digitDiv = document.querySelector('#digits');
+const digits = digitDiv.querySelectorAll('button');
 
-console.log(buttons);
+//console.log(buttons);
 
 
 function add(a, b) {
@@ -49,34 +50,23 @@ function operate(num1, num2, operator) {
 
 function setDigit(buttons) {
 
+
     buttons.forEach(button => {
         button.addEventListener('click', () => {
 
-            num1 = button.id * 1 === Number(button.id) ? button.id : 0;
-            console.log(num1);
+            num1 = Number(button.id) 
+            console.log(button.id);
             screen.textContent = num1;          
             
         })
         
     })
+
+
 }
 
 function setOperator(buttons) {
 
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-
-            //check and set operator
-            for (let i = 0; i < operations.length; i++) {
-                if (button.id === operations[i]) {
-                    operator = button.id;
-                    console.log(operator);
-                }
-            }          
-            
-        })
-        
-    })
 }
 
 //you have to separate the type of buttons
@@ -84,8 +74,8 @@ function setOperator(buttons) {
 //do not query select all buttons
 
 
-setDigit(buttons);
-setOperator(buttons);
+setDigit(digits);
+//setOperator(buttons);
 
 /*
 
