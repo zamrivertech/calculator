@@ -61,9 +61,21 @@ h1 {
 }
 
 #digits {
+    display: flex;
     flex-wrap: wrap;
+
 }
+
 #digits * {
-    flex-basis: 55px;
+    width: 55px;
+}
+
+#operations {
+    display: flex;
+    flex-direction: column;
+}
+
+#operations * {
+    width: 75px;
 }
 

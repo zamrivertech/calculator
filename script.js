@@ -1,10 +1,10 @@
-let num1 = null;
+let num1 = 0;
 let operations = ['+','-','*','/'];
 let operator = "";
 let num2 = 0;
 let screen = document.querySelector(".screen");
 const digitDiv = document.querySelector('#digits');
-const digits = digitDiv.querySelectorAll('button');
+const digitDisplay = digitDiv.querySelectorAll('button');
 
 //console.log(buttons);
 
@@ -48,20 +48,20 @@ function operate(num1, num2, operator) {
 
 }
 
-function setDigit(buttons) {
+function displayDigit(buttons) {
 
+    
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
 
-            num1 = Number(button.id) 
-            console.log(button.id);
-            screen.textContent = num1;          
+           num1 = screen.textContent = Number(screen.textContent + button.id);
             
-        })
+        });
         
-    })
+    });
 
+    
 
 }
 
@@ -73,8 +73,8 @@ function setOperator(buttons) {
 //if a digit button is clicked then set number
 //do not query select all buttons
 
+displayDigit(digitDisplay);
 
-setDigit(digits);
 //setOperator(buttons);
 
 /*
