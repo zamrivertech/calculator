@@ -4,7 +4,10 @@ let operator = "";
 let num2 = 0;
 let screen = document.querySelector(".screen");
 const digitDiv = document.querySelector('#digits');
+const operationDiv = document.querySelector('#operations');
 const digitDisplay = digitDiv.querySelectorAll('button');
+const operateButtons = operationDiv.querySelectorAll('button');
+
 
 //console.log(buttons);
 
@@ -50,8 +53,6 @@ function operate(num1, num2, operator) {
 
 function displayDigit(buttons) {
 
-    
-
     buttons.forEach(button => {
         button.addEventListener('click', () => {
 
@@ -67,6 +68,20 @@ function displayDigit(buttons) {
 
 function setOperator(buttons) {
 
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+
+        screen.textContent = 0; 
+        
+        operator = button.id;
+
+        console.log(button.id);
+            
+        });
+        
+    });
+
+
 }
 
 //you have to separate the type of buttons
@@ -74,6 +89,7 @@ function setOperator(buttons) {
 //do not query select all buttons
 
 displayDigit(digitDisplay);
+setOperator(operateButtons);
 
 //setOperator(buttons);
 
