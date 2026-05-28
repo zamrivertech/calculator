@@ -1,6 +1,5 @@
 let num1 = 0;
-let operations = ['+','-','*','/'];
-let operator = "";
+let operator = null;
 let tempNumber = 0;
 let num2 = 0;
 let screen = document.querySelector(".screen");
@@ -64,14 +63,18 @@ function displayDigit(buttons) {
         
     });
 
-    
-
 }
 
 function setOperator(buttons) {
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
+
+        if (operator != null) {
+
+            result.click();
+
+        } else {
 
         num1 = tempNumber; 
         
@@ -82,6 +85,10 @@ function setOperator(buttons) {
         operator = button.id;
 
         console.log(button.id);
+
+        
+}
+        
             
         });
         
@@ -90,12 +97,7 @@ function setOperator(buttons) {
 
 }
 
-//you have to separate the type of buttons
-//if a digit button is clicked then set number
-//do not query select all buttons in the dom
-
-displayDigit(digitDisplay);
-setOperator(operateButtons);
+function displayResult(result) {
 
 result.addEventListener('click', () => {
 
@@ -105,9 +107,20 @@ result.addEventListener('click', () => {
 
     operate(num1,num2,operator);
 
-
-
 });
+
+}
+
+//you have to separate the type of buttons
+//if a digit button is clicked then set number
+//do not query select all buttons in the dom
+
+displayDigit(digitDisplay);
+setOperator(operateButtons);
+displayResult(result);
+
+
+
 
 //setOperator(buttons);
 
