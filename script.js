@@ -52,8 +52,14 @@ function getClickedDigit(digits){
     digits.forEach(digit => {
 
         digit.addEventListener('click', () => {
+
+            if (digit.id == "clear") {
+                tempNum = 0;
+                displayDigit(tempNum);
+            } else {
             tempNum += digit.id;
-            console.log(tempNum);
+            displayDigit(tempNum);
+            }
         })
         
     })
@@ -62,9 +68,10 @@ function getClickedDigit(digits){
 
 function displayDigit(num) {
 
-    digitScreen.textContent = num; 
+    digitScreen.textContent = Number(num); //this fixes that Zero problem 
 
 }
+
 
 
 getClickedDigit(digitButtons);
