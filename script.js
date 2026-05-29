@@ -1,7 +1,9 @@
-let num1 = 0;
+let num1 = null;
 let operator = null;
-let tempNumber = 0;
-let num2 = 0;
+let tempNumber = null;
+let num2 = null;
+let product = 0;
+
 let screen = document.querySelector(".screen");
 const digitDiv = document.querySelector('#digits');
 const operationDiv = document.querySelector('#operations');
@@ -35,16 +37,16 @@ function operate(num1, num2, operator) {
 
     switch (operator) {
         case "+":
-            screen.textContent = add(num1,num2);
+            return add(num1,num2);
         break;   
         case "-":
-            screen.textContent = subtract(num1,num2);
+            return subtract(num1,num2);
         break;    
         case "*":
-            screen.textContent = multiply(num1,num2);
+            return multiply(num1,num2);
         break;   
         case "/":
-            screen.textContent =  divide(num1,num2);
+            return divide(num1,num2);
         break;  
         default:
             alert('No Operator');                         
@@ -64,13 +66,19 @@ function displayDigit(buttons) {
     });
 
 }
-
 function setOperator(buttons) {
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
 
+        screen.textContent = 0; 
+
         if (operator != null) {
+
+            console.log('num1 ' + num1 )
+            console.log('num2 ' + num2 )
+            
+            //catch num2, i saw something
 
             result.click();
 
@@ -79,8 +87,6 @@ function setOperator(buttons) {
         num1 = tempNumber; 
         
         console.log(num1);        
-
-        screen.textContent = 0; 
         
         operator = button.id;
 
@@ -105,7 +111,7 @@ result.addEventListener('click', () => {
 
     console.log(num2);
 
-    operate(num1,num2,operator);
+    screen.textContent = operate(num1,num2,operator);
 
 });
 
