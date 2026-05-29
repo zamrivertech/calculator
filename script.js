@@ -75,3 +75,24 @@ function displayDigit(num) {
 
 
 getClickedDigit(digitButtons);
+
+
+//initialize num1 and num2 with undefined
+//if num1 is not undefined, use temp in
+//same method for setClickedOperator to
+//store num2, how??? check if num2 is undefined
+//then equal to operator and when result 
+// is displayed, set the result to num1
+// and set num2 to undefined
+//but if clear button then set both undefined
+//in getCLickedDigit in line 57, but tempNUm
+//i think it can be zero
+//like this it is a continued loop... to fix that
+
+//check prolem below if it happens
+
+//problem if operator is clicked instead of equal sign
+//what about if you click operator aggain but without
+//operator like 1+1 = 2 + 0 two plus 0 (you did not type a digit)
+//should still work, must be 2 again, obsiviously displaying still
+//
