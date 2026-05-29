@@ -52,4 +52,39 @@ h1 {
     height: 100%;
 }
 
+#digits {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+}
+
+#digits * {
+    width: 30%;
+}
+
+#more {
+    display: flex;
+    width: 100%;
+}
+
+#clear {
+    width: 93.5%;
+}
+
+#operations {
+    display: flex;
+    flex-wrap: wrap;
+    width: 25%;
+}
+
+#operations * {
+    width: 100%;
+}
+
+button {
+    font-family: 'Orbitron';
+    font-size: 2rem;
+    margin: 2px;
+}
+
 
