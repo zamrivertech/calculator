@@ -45,11 +45,12 @@ function operate(num1, num2, operator) {
 
 function getClickedDigit(digits){
 
+    tempNum = '';
+
     digits.forEach(digit => {
 
         digit.addEventListener('click', () => {
-            tempNum = Number(digit.id);
-            tempNum += 0;
+            tempNum += digit.id;
             console.log(tempNum);
         })
         
