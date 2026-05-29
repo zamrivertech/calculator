@@ -58,4 +58,10 @@ function getClickedDigit(digits){
 
 }
 
+function displayClickedDigit(){
+
+
+}
+
+
 getClickedDigit(digitButtons);
