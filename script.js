@@ -1,6 +1,10 @@
 let num1 = null;
 let num2 = null;
+let tempNum = null;
 let operator = null;
+
+let digitDiv = document.querySelector('#digits');
+let digitButtons = digitDiv.querySelectorAll('button');
 
 function add(a, b) {
     return a + b;
@@ -38,3 +42,19 @@ function operate(num1, num2, operator) {
     }
 
 }
+
+function getClickedDigit(digits){
+
+    digits.forEach(digit => {
+
+        digit.addEventListener('click', () => {
+            tempNum = Number(digit.id);
+            tempNum += 0;
+            console.log(tempNum);
+        })
+        
+    })
+
+}
+
+getClickedDigit(digitButtons);
