@@ -6,6 +6,8 @@ let operator = null;
 let digitDiv = document.querySelector('#digits');
 let digitButtons = digitDiv.querySelectorAll('button');
 
+let digitScreen = document.querySelector('.screen'); 
+
 function add(a, b) {
     return a + b;
 }
@@ -58,8 +60,9 @@ function getClickedDigit(digits){
 
 }
 
-function displayClickedDigit(){
+function displayDigit(num) {
 
+    digitScreen.textContent = num; 
 
 }
 
