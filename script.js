@@ -59,6 +59,11 @@ function getClickedDigit(digits){
             if (digit.id == "clear") {
                 tempNum = 0;
                 displayDigit(tempNum);
+            } else if (operator != undefined) {
+            //kinda worked    
+            tempNum = 0;    
+            tempNum += digit.id;
+            displayDigit(tempNum);               
             } else {
             tempNum += digit.id;
             displayDigit(tempNum);
