@@ -1,12 +1,15 @@
-let num1 = null;
-let num2 = null;
-let tempNum = null;
-let operator = null;
+let num1 = undefined;
+let num2 = undefined;
+let tempNum = undefined;
+let operator = undefined;
 
 let digitDiv = document.querySelector('#digits');
 let digitButtons = digitDiv.querySelectorAll('button');
 
 let digitScreen = document.querySelector('.screen'); 
+
+let operationDiv = document.querySelector('#operations');
+let operationButtons = operationDiv.querySelectorAll('button'); 
 
 function add(a, b) {
     return a + b;
@@ -72,9 +75,21 @@ function displayDigit(num) {
 
 }
 
+function setClickedOperator(buttons) {
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            operator = button.id;
+            console.log(operator);
+        })
+    })
+}
+
+
+
 
 
 getClickedDigit(digitButtons);
+setClickedOperator(operationButtons);
 
 
 //initialize num1 and num2 with undefined
