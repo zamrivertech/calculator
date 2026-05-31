@@ -85,7 +85,10 @@ function clearScreen (clearButton) {
         clearButton.addEventListener('click', () => {
 
                 tempNum = '';
-                displayDigit(tempNum);
+                displayDigit(Number(tempNum));
+                num1 = undefined;
+                num2 = undefined;
+                operator = '';
 
         })    
 
