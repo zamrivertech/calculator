@@ -61,9 +61,18 @@ function getClickedDigit(digits){
 
         digit.addEventListener('click', () => {
 
-                    tempNum += digit.id;
-                    displayDigit(tempNum); 
-                    console.log(tempNum);
+
+                if (operator.length === 1) {
+                        tempNum += digit.id;
+                        num2 = tempNum;
+                        displayDigit(num2); 
+                        console.log('num2 ' + num2);                    
+                } else {
+                        tempNum += digit.id;
+                        displayDigit(tempNum); 
+                        console.log(tempNum);
+            
+                }
 
         })
         
@@ -85,7 +94,13 @@ function clearScreen (clearButton) {
 
 function displayDigit(num) {
 
-    digitScreen.textContent = Number(num); //this fixes that Zero problem 
+    digitScreen.textContent = num; //this fixes that Zero problem 
+
+}
+
+function getDisplayDigit() {
+
+    return Number(digitScreen.textContent); //this fixes that Zero problem 
 
 }
 
@@ -96,6 +111,15 @@ function setClickedOperator(buttons) {
             operator = button.id;
 
             console.log(operator);
+
+            num1 = Number(getDisplayDigit());
+            console.log('num1 ' + num1)
+            displayDigit(num1);
+
+            tempNum = '';
+
+            //
+            
 
         })
     })
