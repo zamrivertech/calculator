@@ -78,7 +78,6 @@ function getClickedDigit(digits){
                         displayDigit(tempNum)  
                         num2 = Number(tempNum);
                         console.log('num2' + num2)               
-
                     } 
 
         })
