@@ -72,14 +72,24 @@ h1 {
     width: 93.5%;
 }
 
-#operations {
+.operate-section {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
     width: 25%;
 }
 
 #operations * {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin-bottom: 2.2px;
+    height: 28%;
+
+}
+
+#result {
+    height: 19%;
 }
 
 button {
