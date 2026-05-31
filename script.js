@@ -66,14 +66,19 @@ function getClickedDigit(digits){
 
                     //this is set num1 and num2
 
-                    if (num1 == undefined) {
+                    if (operator.length === 0) {
+
                         num1 = Number(tempNum);
-                        console.log(num1)
-                        tempNum = '';
-                    } else if (operator.length === 1 && num2 == undefined) {
+                        console.log('num1 ' + num1);
+
+                    } else if (operator.length === 1 && 
+                               num2 == undefined) {
+                        tempNum = '';        
+                        tempNum += digit.id;
+                        displayDigit(tempNum)  
                         num2 = Number(tempNum);
-                        console.log(num2)               
-                        tempNum = '';
+                        console.log('num2' + num2)               
+
                     } 
 
         })
@@ -117,7 +122,7 @@ function operateNumbers(button) {
     button.addEventListener('click', () => {
         result = operate(Number(num1),Number(num2),operator);
         displayDigit(result);
-        console.log(num1 + '' + num2 + '' + operator);
+        //console.log(num1 + '' + num2 + '' + operator);
     })
 }
 
