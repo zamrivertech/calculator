@@ -63,22 +63,7 @@ function getClickedDigit(digits){
 
                     tempNum += digit.id;
                     displayDigit(tempNum); 
-
-                    //this is set num1 and num2
-
-                    if (operator.length === 0) {
-
-                        num1 = Number(tempNum);
-                        console.log('num1 ' + num1);
-
-                    } else if (operator.length === 1 && 
-                               num2 == undefined) {
-                        tempNum = '';        
-                        tempNum += digit.id;
-                        displayDigit(tempNum)  
-                        num2 = Number(tempNum);
-                        console.log('num2' + num2)               
-                    } 
+                    console.log(tempNum);
 
         })
         
@@ -91,6 +76,7 @@ function clearScreen (clearButton) {
         clearButton.addEventListener('click', () => {
 
                 tempNum = '';
+                console.log('clear')
                 displayDigit(tempNum);
 
         })    
@@ -109,9 +95,7 @@ function setClickedOperator(buttons) {
             
             operator = button.id;
 
-            //need to see the problem here
-            //Num2 is not being set but displayed
-
+            console.log(operator);
 
         })
     })
@@ -119,9 +103,7 @@ function setClickedOperator(buttons) {
 
 function operateNumbers(button) {
     button.addEventListener('click', () => {
-        result = operate(Number(num1),Number(num2),operator);
-        displayDigit(result);
-        //console.log(num1 + '' + num2 + '' + operator);
+        console.log('=');
     })
 }
 
