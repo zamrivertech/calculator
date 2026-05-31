@@ -1,15 +1,20 @@
 let num1 = undefined;
 let num2 = undefined;
 let tempNum = undefined;
-let operator = undefined;
+let operator = '';
+let result = undefined;
 
 let digitDiv = document.querySelector('#digits');
 let digitButtons = digitDiv.querySelectorAll('button');
+
+let clearButton = digitDiv.querySelector('#clear');
 
 let digitScreen = document.querySelector('.screen'); 
 
 let operationDiv = document.querySelector('#operations');
 let operationButtons = operationDiv.querySelectorAll('button'); 
+
+let resultButton = document.querySelector('#result');
 
 function add(a, b) {
     return a + b;
@@ -50,27 +55,41 @@ function operate(num1, num2, operator) {
 
 function getClickedDigit(digits){
 
-    tempNum = '';
+    tempNum = ''
 
     digits.forEach(digit => {
 
         digit.addEventListener('click', () => {
 
-            if (digit.id == "clear") {
-                tempNum = 0;
-                displayDigit(tempNum);
-            } else if (operator != undefined) {
-            //kinda worked    
-            tempNum = 0;    
-            tempNum += digit.id;
-            displayDigit(tempNum);               
-            } else {
-            tempNum += digit.id;
-            displayDigit(tempNum);
-            }
+                    tempNum += digit.id;
+                    displayDigit(tempNum); 
+
+                    //this is set num1 and num2
+
+                    if (num1 == undefined) {
+                        num1 = Number(tempNum);
+                        console.log(num1)
+                        tempNum = '';
+                    } else if (operator.length === 1 && num2 == undefined) {
+                        num2 = Number(tempNum);
+                        console.log(num2)               
+                        tempNum = '';
+                    } 
+
         })
         
     })
+
+}
+
+function clearScreen (clearButton) {
+
+        clearButton.addEventListener('click', () => {
+
+                tempNum = '';
+                displayDigit(tempNum);
+
+        })    
 
 }
 
@@ -83,9 +102,22 @@ function displayDigit(num) {
 function setClickedOperator(buttons) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
+            
             operator = button.id;
-            console.log(operator);
+
+            //need to see the problem here
+            //Num2 is not being set but displayed
+
+
         })
+    })
+}
+
+function operateNumbers(button) {
+    button.addEventListener('click', () => {
+        result = operate(Number(num1),Number(num2),operator);
+        displayDigit(result);
+        console.log(num1 + '' + num2 + '' + operator);
     })
 }
 
@@ -95,7 +127,8 @@ function setClickedOperator(buttons) {
 
 getClickedDigit(digitButtons);
 setClickedOperator(operationButtons);
-
+clearScreen(clearButton);
+operateNumbers(resultButton);
 
 //initialize num1 and num2 with undefined
 //if num1 is not undefined, use temp in
