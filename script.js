@@ -1,8 +1,8 @@
-let num1 = undefined;
-let num2 = undefined;
+let num1 = 0;
+let num2 = 0;
 let tempNum = undefined;
 let operator = '';
-let result = undefined;
+let result = 0;
 
 let digitDiv = document.querySelector('#digits');
 let digitButtons = digitDiv.querySelectorAll('button');
@@ -48,7 +48,8 @@ function operate(num1, num2, operator) {
             return divide(num1,num2);
         break;  
         default:
-            alert('No Operator');                         
+            alert('No Operator'); 
+            clearButton.click();                        
     }
 
 }
@@ -61,15 +62,18 @@ function getClickedDigit(digits){
 
         digit.addEventListener('click', () => {
 
+                if (digit.id === "clear") {
 
-                if (operator.length === 1) {
+                    tempNum = '';
+
+                } else if (operator.length === 1) {
                         tempNum += digit.id;
                         num2 = tempNum;
-                        displayDigit(num2); 
+                        displayDigit(Number(num2)); 
                         console.log('num2 ' + num2);                    
                 } else {
                         tempNum += digit.id;
-                        displayDigit(tempNum); 
+                        displayDigit(Number(tempNum)); 
                         console.log(tempNum);
             
                 }
@@ -86,8 +90,8 @@ function clearScreen (clearButton) {
 
                 tempNum = '';
                 displayDigit(Number(tempNum));
-                num1 = undefined;
-                num2 = undefined;
+                num1 = 0;
+                num2 = 0;
                 operator = '';
 
         })    
