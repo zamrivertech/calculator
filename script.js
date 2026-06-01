@@ -2,8 +2,6 @@ let num1 = 0;
 let num2 = 0;
 let tempNum = undefined;
 let operator = '';
-let tempOperator = '';
-let tempOperator2 = '';
 let result = 0;
 
 let digitDiv = document.querySelector('#digits');
@@ -71,7 +69,6 @@ function getClickedDigit(digits){
                 } else if (operator.length === 1) {
                         tempNum += digit.id;
                         num2 = tempNum;
-                        tempOperator = operator;
                         displayDigit(Number(num2)); 
                         console.log('num2 ' + num2);                    
                 } else {
@@ -117,12 +114,18 @@ function getDisplayDigit() {
 function setClickedOperator(buttons) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
+
+            //if op is already set
+
+            if (operator.length === 0) {
+
+                operator = button.id;
+                console.log("Clicked Operator: " + operator);
+
+            } 
+
+            //okay, now i think its okay
             
-            operator = button.id;
-
-
-            console.log("Clicked Operator: " + operator);
-
             displayDigit(num1);
 
             tempNum = '';
@@ -131,13 +134,10 @@ function setClickedOperator(buttons) {
             //this br
 
             if(operator.length === 1 && num2 != 0) {
-                tempOperator2 = operator;
-                console.log(tempOperator2)
-                operator = tempOperator;
-                console.log(operator)
                 resultButton.click();
                 num2 = 0;
-                
+                operator = button.id;
+                console.log('new operator ' + operator)
             }
             
         })
@@ -148,22 +148,12 @@ function operateNumbers(button) {
     button.addEventListener('click', () => {
         tempNum = '';
         displayDigit(tempNum);
-
-        console.log("operator " + operator)
-        console.log("tempOperator " + tempOperator)
-        console.log("tempOperator2 " + tempOperator2)
         result = operate(Number(num1),Number(num2),operator);
         num1 = result;
+        //get new operator
         console.log('num1 ' + num1);
         displayDigit(num1);
-        
-        if (tempOperator2.length === 1) {
-            operator = tempOperator2;
-        }
-
-        
-
-        
+    
     })
 }
 
