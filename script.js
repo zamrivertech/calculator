@@ -73,8 +73,9 @@ function getClickedDigit(digits){
                         console.log('num2 ' + num2);                    
                 } else {
                         tempNum += digit.id;
-                        displayDigit(Number(tempNum)); 
-                        console.log(tempNum);
+                        num1 = Number(tempNum);
+                        displayDigit(num1); 
+                        console.log("Clicked Digits for num1:" + tempNum);
             
                 }
 
@@ -116,17 +117,21 @@ function setClickedOperator(buttons) {
             
             operator = button.id;
 
-            console.log(operator);
+            console.log("Clicked Operator: " + operator);
 
-            num1 = Number(getDisplayDigit());
-            console.log('num1 ' + num1)
             displayDigit(num1);
 
             tempNum = '';
 
             //
-            
+            //this br
 
+            if(operator.length === 1 && num2 != 0) {
+                resultButton.click();
+                num2 = 0;
+                operator = '';
+            }
+            
         })
     })
 }
@@ -137,8 +142,11 @@ function operateNumbers(button) {
         displayDigit(tempNum);
         result = operate(Number(num1),Number(num2),operator);
         num1 = result;
+        console.log('num1 ' + num1);
         displayDigit(num1);
-        console.log(num1)
+
+        //need to change num1 and num2 values
+        //check
     })
 }
 
