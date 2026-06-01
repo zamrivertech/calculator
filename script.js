@@ -2,6 +2,7 @@ let num1 = 0;
 let num2 = 0;
 let tempNum = undefined;
 let operator = '';
+let tempOperator = '';
 let result = 0;
 
 let digitDiv = document.querySelector('#digits');
@@ -69,6 +70,7 @@ function getClickedDigit(digits){
                 } else if (operator.length === 1) {
                         tempNum += digit.id;
                         num2 = tempNum;
+                        tempOperator = operator;
                         displayDigit(Number(num2)); 
                         console.log('num2 ' + num2);                    
                 } else {
@@ -117,6 +119,7 @@ function setClickedOperator(buttons) {
             
             operator = button.id;
 
+
             console.log("Clicked Operator: " + operator);
 
             displayDigit(num1);
@@ -127,6 +130,7 @@ function setClickedOperator(buttons) {
             //this br
 
             if(operator.length === 1 && num2 != 0) {
+                operator = tempOperator;
                 resultButton.click();
                 num2 = 0;
                 operator = '';
