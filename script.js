@@ -101,7 +101,7 @@ function clearScreen (clearButton) {
 
 function displayDigit(num) {
 
-    digitScreen.textContent = num; //this fixes that Zero problem 
+    digitScreen.textContent = Math.round(num * 100) / 100; //this fixes that Zero problem 
 
 }
 
