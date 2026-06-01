@@ -3,6 +3,7 @@ let num2 = 0;
 let tempNum = undefined;
 let operator = '';
 let tempOperator = '';
+let tempOperator2 = '';
 let result = 0;
 
 let digitDiv = document.querySelector('#digits');
@@ -130,10 +131,13 @@ function setClickedOperator(buttons) {
             //this br
 
             if(operator.length === 1 && num2 != 0) {
+                tempOperator2 = operator;
+                console.log(tempOperator2)
                 operator = tempOperator;
+                console.log(operator)
                 resultButton.click();
                 num2 = 0;
-                operator = '';
+                
             }
             
         })
@@ -144,13 +148,22 @@ function operateNumbers(button) {
     button.addEventListener('click', () => {
         tempNum = '';
         displayDigit(tempNum);
+
+        console.log("operator " + operator)
+        console.log("tempOperator " + tempOperator)
+        console.log("tempOperator2 " + tempOperator2)
         result = operate(Number(num1),Number(num2),operator);
         num1 = result;
         console.log('num1 ' + num1);
         displayDigit(num1);
+        
+        if (tempOperator2.length === 1) {
+            operator = tempOperator2;
+        }
 
-        //need to change num1 and num2 values
-        //check
+        
+
+        
     })
 }
 
