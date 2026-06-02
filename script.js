@@ -101,8 +101,18 @@ function clearScreen (clearButton) {
 
 function displayDigit(num) {
 
-    digitScreen.textContent = Math.round(num * 100) / 100; //this fixes that Zero problem 
+    num = Math.round(num * 100) / 100; //this fixes that Zero problem 
 
+    if (isNaN(Number(num))) {
+        
+        digitScreen.textContent;
+
+    } else {
+
+        digitScreen.textContent = num;
+
+    }
+    
 }
 
 function getDisplayDigit() {
