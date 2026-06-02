@@ -62,6 +62,10 @@ function getClickedDigit(digits){
 
         digit.addEventListener('click', () => {
 
+
+            // If tempNum to Num is NaN, then do not
+            // set to either num1 or num2, simple solution
+
                 if (digit.id === "clear") {
 
                     tempNum = '';
