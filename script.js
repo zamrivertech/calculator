@@ -72,12 +72,12 @@ function getClickedDigit(digits){
 
                 } else if (operator.length === 1) {
                         tempNum += digit.id;
-                        num2 = tempNum;
+                        num2 = isNaN(Number(tempNum)) ? 0 : Number(tempNum);
                         displayDigit(Number(num2)); 
                         console.log('num2 ' + num2);                    
                 } else {
                         tempNum += digit.id;
-                        num1 = Number(tempNum);
+                        num1 = isNaN(Number(tempNum)) ? 0 : Number(tempNum);
                         displayDigit(num1); 
                         console.log("Clicked Digits for num1:" + tempNum);
             
