@@ -16,6 +16,8 @@ let operationButtons = operationDiv.querySelectorAll('button');
 
 let resultButton = document.querySelector('#result');
 
+let backSpace = document.querySelector('#<')
+
 function add(a, b) {
     return a + b;
 }
