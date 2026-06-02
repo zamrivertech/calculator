@@ -72,11 +72,15 @@ function getClickedDigit(digits){
 
                 } else if (operator.length === 1) {
                         tempNum += digit.id;
+                        tempNum = cleanDigits(tempNum); 
+                        console.log("Cleaned: " + tempNum);                                              
                         num2 = isNaN(Number(tempNum)) ? 0 : Number(tempNum);
                         displayDigit(Number(num2)); 
                         console.log('num2 ' + num2);                    
                 } else {
                         tempNum += digit.id;
+                        tempNum = cleanDigits(tempNum); 
+                        console.log("Cleaned: " + tempNum);                     
                         num1 = isNaN(Number(tempNum)) ? 0 : Number(tempNum);
                         displayDigit(num1); 
                         console.log("Clicked Digits for num1:" + tempNum);
@@ -171,6 +175,27 @@ function operateNumbers(button) {
     
     })
 }
+
+function cleanDigits(stringNum) {
+
+    let array = stringNum.split('');
+    let count = 0;
+
+    for (let i = 0; i < array.length; i++) {
+
+        if (array[i] === ".") {
+            count++;
+        }
+
+        if (count >= 2) {
+            array.splice(array.indexOf('.'), count - 1);
+        }
+        
+    }
+
+    return array.join('');
+
+} 
 
 
 
