@@ -153,6 +153,7 @@ function operateNumbers(button) {
         //get new operator
         console.log('num1 ' + num1);
         displayDigit(num1);
+        num2 = 0;
     
     })
 }
