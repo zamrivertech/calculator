@@ -4,15 +4,9 @@ let tempNum = undefined;
 let operator = '';
 let result = 0;
 
-let arrayKeys = [];
+let pressed = "";
 
 const calculator = document.querySelector("body");
-
-calculator.addEventListener('keydown', (e) => {
-
-    console.log(e.key);
-
-});
 
 let digitDiv = document.querySelector('#digits');
 let digitButtons = digitDiv.querySelectorAll('button');
@@ -74,9 +68,6 @@ function getClickedDigit(digits){
 
         digit.addEventListener('click', () => {
 
-
-            // If tempNum to Num is NaN, then do not
-            // set to either num1 or num2, simple solution
                 if (digit.id === "backspace") {
                     digit.id = "<";
                 } else if (digit.id === "clear") {
@@ -122,7 +113,7 @@ function clearScreen (clearButton) {
 
 function displayDigit(num) {
 
-    num = Math.round(num * 100) / 100; //this fixes that Zero problem 
+    num = Math.round(num * 100) / 100; 
 
     if (isNaN(Number(num))) {
         
@@ -146,7 +137,6 @@ function setClickedOperator(buttons) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
 
-            //if op is already set
 
             if (operator.length === 0) {
 
@@ -155,7 +145,6 @@ function setClickedOperator(buttons) {
 
             } 
 
-            //okay, now i think its okay
             
             displayDigit(num1);
 
@@ -220,36 +209,28 @@ function cleanDigits(stringNum) {
             array.splice(array.indexOf('.') - 1, countRemoveDigit + 1);
         }
 
-
-        
     }
 
     return array.join('');
 
 } 
 
+function pressedKey() {
+
+    let arrayKeys = ["1","2","3","4","5","6","7","8","9","0",".","Backspace","Enter"];
+
+    pressed = "";
+
+    calculator.addEventListener('keydown', (e) => {
+
+       console.log(e.key);
+
+    });
+
+}
 
 getClickedDigit(digitButtons);
 setClickedOperator(operationButtons);
 clearScreen(clearButton);
 operateNumbers(resultButton);
-
-//initialize num1 and num2 with undefined
-//if num1 is not undefined, use temp in
-//same method for setClickedOperator to
-//store num2, how??? check if num2 is undefined
-//then equal to operator and when result 
-// is displayed, set the result to num1
-// and set num2 to undefined
-//but if clear button then set both undefined
-//in getCLickedDigit in line 57, but tempNUm
-//i think it can be zero
-//like this it is a continued loop... to fix that
-
-//check prolem below if it happens
-
-//problem if operator is clicked instead of equal sign
-//what about if you click operator aggain but without
-//operator like 1+1 = 2 + 0 two plus 0 (you did not type a digit)
-//should still work, must be 2 again, obsiviously displaying still
-//
+pressedKey();
