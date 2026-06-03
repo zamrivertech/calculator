@@ -68,21 +68,30 @@ function getClickedDigit(digits){
 
         digit.addEventListener('click', () => {
 
-                if (digit.id === "backspace") {
-                    digit.id = "<";
-                } else if (digit.id === "clear") {
+               setNum(digit.id);
 
+        })
+        
+    })
+
+}
+
+function setNum(digit) {
+
+                if (digit == "backspace") {
+                    digit = "<";
+                    console.log(digit)
+                } else if (digit === "clear") {
                     tempNum = '';
-
                 } else if (operator.length === 1) {
-                        tempNum += digit.id;
+                        tempNum += digit;
                         tempNum = cleanDigits(tempNum); 
                         console.log("Cleaned: " + tempNum);                                              
                         num2 = isNaN(Number(tempNum)) ? 0 : Number(tempNum);
                         displayDigit(Number(num2)); 
                         console.log('num2 ' + num2);                    
                 } else {
-                        tempNum += digit.id;
+                        tempNum += digit;
                         tempNum = cleanDigits(tempNum); 
                         console.log("Cleaned: " + tempNum);                     
                         num1 = isNaN(Number(tempNum)) ? 0 : Number(tempNum);
@@ -90,10 +99,6 @@ function getClickedDigit(digits){
                         console.log("Clicked Digits for num1:" + tempNum);
             
                 }
-
-        })
-        
-    })
 
 }
 
@@ -217,13 +222,24 @@ function cleanDigits(stringNum) {
 
 function pressedKey() {
 
-    let arrayKeys = ["1","2","3","4","5","6","7","8","9","0",".","Backspace","Enter"];
+    let arrayNum = ["1","2","3","4","5","6","7","8","9","0","."];
+
+    let arrayOperator = ["+","-","/","*"];
+    
+    let arrayMore = ["Backspace","Enter"];    
 
     pressed = "";
 
     calculator.addEventListener('keydown', (e) => {
 
-       console.log(e.key);
+        for (let i = 0; i < arrayNum.length; i++) {
+            if (e.key === arrayNum[i]) {
+                pressed = e.key;
+                setNum(pressed);
+            }
+        }
+
+       
 
     });
 
