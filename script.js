@@ -76,9 +76,6 @@ function getClickedDigit(digits){
                 } else if (operator.length === 1) {
                         tempNum += digit.id;
                         tempNum = cleanDigits(tempNum); 
-
-
-
                         console.log("Cleaned: " + tempNum);                                              
                         num2 = isNaN(Number(tempNum)) ? 0 : Number(tempNum);
                         displayDigit(Number(num2)); 
@@ -162,6 +159,11 @@ function setClickedOperator(buttons) {
                 num2 = 0;
                 operator = button.id;
                 console.log('new operator ' + operator)
+            } else {
+                
+                operator = button.id;
+                console.log("Clicked Operator: " + operator);
+
             }
             
         })
@@ -176,7 +178,9 @@ function operateNumbers(button) {
         num1 = result;
         //get new operator
         console.log('num1 ' + num1);
+        operator = '';
         displayDigit(num1);
+        tempNum = num1;
         num2 = 0;
     
     })
