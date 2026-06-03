@@ -16,7 +16,7 @@ let operationButtons = operationDiv.querySelectorAll('button');
 
 let resultButton = document.querySelector('#result');
 
-let backSpace = document.querySelector('#<')
+let backSpace = document.querySelector('#backspace');
 
 function add(a, b) {
     return a + b;
@@ -67,14 +67,18 @@ function getClickedDigit(digits){
 
             // If tempNum to Num is NaN, then do not
             // set to either num1 or num2, simple solution
-
-                if (digit.id === "clear") {
+                if (digit.id === "backspace") {
+                    digit.id = "<";
+                } else if (digit.id === "clear") {
 
                     tempNum = '';
 
                 } else if (operator.length === 1) {
                         tempNum += digit.id;
                         tempNum = cleanDigits(tempNum); 
+
+
+
                         console.log("Cleaned: " + tempNum);                                              
                         num2 = isNaN(Number(tempNum)) ? 0 : Number(tempNum);
                         displayDigit(Number(num2)); 
@@ -181,26 +185,34 @@ function operateNumbers(button) {
 function cleanDigits(stringNum) {
 
     let array = stringNum.split('');
-    let count = 0;
+    let countPoint = 0;
+    let countRemoveDigit = 0;
 
     for (let i = 0; i < array.length; i++) {
 
         if (array[i] === ".") {
-            count++;
+            countPoint++;
         }
 
-        if (count >= 2) {
-            array.splice(array.indexOf('.'), count - 1);
+        if (countPoint >= 2) {
+            array.splice(array.indexOf('.'), countPoint - 1);
         }
+
+        if (array[i] === "<") {
+            countRemoveDigit++;
+        }
+
+        if (countRemoveDigit >= 1) {
+            array.splice(array.indexOf('.') - 1, countRemoveDigit + 1);
+        }
+
+
         
     }
 
     return array.join('');
 
 } 
-
-
-
 
 
 getClickedDigit(digitButtons);
