@@ -78,9 +78,8 @@ function getClickedDigit(digits){
 
 function setNum(digit) {
 
-                if (digit == "backspace") {
+                if (digit === "backspace") {
                     digit = "<";
-                    console.log(digit)
                 } else if (digit === "clear") {
                     tempNum = '';
                 } else if (operator.length === 1) {
@@ -208,6 +207,7 @@ function cleanDigits(stringNum) {
 
         if (array[i] === "<") {
             countRemoveDigit++;
+            console.log(countRemoveDigit);
         }
 
         if (countRemoveDigit >= 1) {
