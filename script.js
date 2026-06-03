@@ -80,7 +80,14 @@ function setNum(digit) {
 
                 if (digit === "backspace") {
                     digit = "<";
-                } else if (digit === "clear") {
+                    tempNum += digit;
+                    console.log(tempNum)
+                    console.log('cleaned')
+                    tempNum = cleanDigits(tempNum);  
+                    displayDigit(tempNum)                   
+                }  
+                
+                if (digit === "clear") {
                     tempNum = '';
                 } else if (operator.length === 1) {
                         tempNum += digit;
@@ -91,6 +98,7 @@ function setNum(digit) {
                         console.log('num2 ' + num2);                    
                 } else {
                         tempNum += digit;
+                                            console.log('cleaned again')
                         tempNum = cleanDigits(tempNum); 
                         console.log("Cleaned: " + tempNum);                     
                         num1 = isNaN(Number(tempNum)) ? 0 : Number(tempNum);
