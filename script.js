@@ -4,6 +4,16 @@ let tempNum = undefined;
 let operator = '';
 let result = 0;
 
+let arrayKeys = [];
+
+const calculator = document.querySelector("body");
+
+calculator.addEventListener('keydown', (e) => {
+
+    console.log(e.key);
+
+});
+
 let digitDiv = document.querySelector('#digits');
 let digitButtons = digitDiv.querySelectorAll('button');
 
