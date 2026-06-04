@@ -186,7 +186,9 @@ function setOperator (button) {
 }
 
 function operateNumbers(button) {
+
     button.addEventListener('click', () => {
+
         tempNum = '';
         displayDigit(tempNum);
         result = operate(Number(num1),Number(num2),operator);
@@ -260,6 +262,24 @@ function pressedKey() {
                 //
             }
         }    
+
+        for (let i = 0; i < arrayMore.length; i++) {
+            if (e.key === arrayMore[i]) {
+                pressed = e.key;
+
+                if (pressed == "Enter") {
+                  console.log(pressed);        
+                  resultButton.click();
+                }
+
+                if (pressed == "Backspace") {
+                  console.log(pressed);
+                  setNum("backspace"); 
+                }
+                //
+            }
+        }    
+
 
        
 
