@@ -82,8 +82,6 @@ function setNum(digit) {
                     digit = "<";
                     tempNum += digit;
                     console.log(tempNum)
-                    console.log('cleaned')
-                    tempNum = cleanDigits(tempNum);  
                     displayDigit(tempNum)                   
                 }  
                 
@@ -98,7 +96,6 @@ function setNum(digit) {
                         console.log('num2 ' + num2);                    
                 } else {
                         tempNum += digit;
-                                            console.log('cleaned again')
                         tempNum = cleanDigits(tempNum); 
                         console.log("Cleaned: " + tempNum);                     
                         num1 = isNaN(Number(tempNum)) ? 0 : Number(tempNum);
@@ -219,7 +216,8 @@ function cleanDigits(stringNum) {
         }
 
         if (countRemoveDigit >= 1) {
-            array.splice(array.indexOf('.') - 1, countRemoveDigit + 1);
+            array.splice(array.indexOf('<') - 1, countRemoveDigit + 2);
+            console.log(array);
         }
 
     }
