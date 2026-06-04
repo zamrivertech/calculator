@@ -143,13 +143,23 @@ function getDisplayDigit() {
 }
 
 function setClickedOperator(buttons) {
+
     buttons.forEach(button => {
         button.addEventListener('click', () => {
+
+            setOperator(button.id);
+
+            
+        })
+    })
+}
+
+function setOperator (button) {
 
 
             if (operator.length === 0) {
 
-                operator = button.id;
+                operator = button;
                 console.log("Clicked Operator: " + operator);
 
             } 
@@ -165,17 +175,14 @@ function setClickedOperator(buttons) {
             if(operator.length === 1 && num2 != 0) {
                 resultButton.click();
                 num2 = 0;
-                operator = button.id;
+                operator = button;
                 console.log('new operator ' + operator)
             } else {
                 
-                operator = button.id;
+                operator = button;
                 console.log("Clicked Operator: " + operator);
 
             }
-            
-        })
-    })
 }
 
 function operateNumbers(button) {
@@ -244,6 +251,15 @@ function pressedKey() {
                 setNum(pressed);
             }
         }
+
+        for (let i = 0; i < arrayOperator.length; i++) {
+            if (e.key === arrayOperator[i]) {
+                pressed = e.key;
+                console.log(pressed);
+                setOperator(pressed);
+                //
+            }
+        }    
 
        
 
