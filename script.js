@@ -247,9 +247,6 @@ function pressedKey() {
 
     calculator.addEventListener('keydown', (e) => {
 
-        if (e.key = "c") {
-            clearButton.click();
-        }
 
         for (let i = 0; i < arrayNum.length; i++) {
             if (e.key === arrayNum[i]) {
